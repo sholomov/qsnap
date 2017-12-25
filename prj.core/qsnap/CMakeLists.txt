@@ -3,6 +3,8 @@ project(qsnap)
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 
+set(qsnap_LIBS ${OpenCV_LIBS})
+
 if(Qt5Gui_DIR AND Qt5Widgets_DIR)
 
   include_directories(${Qt5Gui_INCLUDE_DIRS})
@@ -75,4 +77,4 @@ add_definitions(-DQSNAP_LIB)
 
 add_library(qsnap SHARED ${qsnap_MOC} ${qsnap_SRCS} ${qsnap_HEADERS})
 set_target_properties(qsnap PROPERTIES AUTOMOC TRUE)
-target_link_libraries(qsnap ${qsnap_LIBS} ${OpenCV_LIBS})
+target_link_libraries(qsnap ${qsnap_LIBS})
